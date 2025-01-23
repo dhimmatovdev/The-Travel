@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete responsive tour and travel agency website </title>
+    <title>The Travel</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -13,81 +14,149 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
 
 </head>
+
 <body>
 
 
-<header>
+    <header>
 
-    <div id="menu-bar" class="fas fa-bars"></div>
+        <div id="menu-bar" class="fas fa-bars"></div>
 
-    <a href="#" class="logo"><span>T</span>ravel</a>
+        <a href="#" class="logo"><span>THE </span>travel</a>
 
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#book">Book</a>
-        <a href="#packages">Packages</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#review">Review</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#book">Book</a>
+            <a href="#packages">Packages</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="language-dropdown">
+            <div class="custom-dropdown">
+                <button class="dropdown-btn">Select Language <span>▼</span></button>
+                <div class="dropdown-list">
+                    <a href="#" data-value="1">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/30px-Flag_of_Uzbekistan.svg.png" class="flag-icon" alt="Uzbek Flag"> Uzbek
+                    </a>
+                    <a href="#" data-value="2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/30px-Flag_of_Russia.svg.png" class="flag-icon" alt="Russian Flag"> Russian
+                    </a>
+                    <a href="#" data-value="3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/30px-Flag_of_the_United_States.svg.png" class="flag-icon" alt="English Flag"> English
+                    </a>
+                </div>
+            </div>
+        </div>
 
-    <div class="icons">
-        <i class="fas fa-search" id="search-btn"></i>
-        <i class="fas fa-user" id="login-btn"></i>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="search here...">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+
+    </header>
+
+
+    <div class="login-form-container">
+
+        <i class="fas fa-times" id="form-close"></i>
+
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="enter your email">
+            <input type="password" class="box" placeholder="enter your password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remember">
+            <label for="remember">remember me</label>
+            <p>forget password? <a href="#">click here</a></p>
+            <p>don't have and account? <a href="#">register now</a></p>
+        </form>
+
     </div>
+    <!-- home section start -->
 
-    <form action="" class="search-bar-container">
-        <input type="search" id="search-bar" placeholder="search here...">
-        <label for="search-bar" class="fas fa-search"></label>
-    </form>
+    <section class="home" id="home">
 
-</header>
+        <div class="content">
+            <h3>Uzbekistan Awaits</h3>
+            <p>A Journey Through Timeless Beauty and Culture!</p>
+            <a href="#" class="btn">discover more</a>
+        </div>
 
+        <div class="controls">
+            <span class="vid-btn active" data-src="images/vid-1.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-2.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-3.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-4.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-5.mp4"></span>
+        </div>
 
-<div class="login-form-container">
+        <div class="video-container">
+            <video src="images/vid-1.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
 
-    <i class="fas fa-times" id="form-close"></i>
+    </section>
+    <!-- home section ends -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Xarita uchun o'lcham */
+        #map {
+            height: 600px;
+        }
+    </style>
+    </head>
 
-    <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email">
-        <input type="password" class="box" placeholder="enter your password">
-        <input type="submit" value="login now" class="btn">
-        <input type="checkbox" id="remember">
-        <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
-    </form>
+    <body>
+        <h1>Diqqatga Sazovor Joylar Xaritasini Ko'rsatish</h1>
+        <div id="map"></div>
 
-</div>
-<!-- home section start -->
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            // Xarita yaratish
+            var map = L.map('map').setView([41.2995, 69.2407], 13); // Toshkent koordinatalari
 
-<section class="home" id="home">
+            // Xarita qatlamini qo'shish
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
-    <div class="content">
-        <h3>Uzbekistan Awaits</h3>
-        <p>A Journey Through Timeless Beauty and Culture!</p>
-        <a href="#" class="btn">discover more</a>
-    </div>
+            // Diqqatga sazovor joylar uchun markerlar
+            var marker0 = L.marker([41.3129, 69.2439]).addTo(map);
+            var marker1 = L.marker([41.2995, 69.2407]).addTo(map);
+            marker1.bindPopup("<b>Toshkent Shahri</b><br>Diqqatga sazovor joy.");
 
-    <div class="controls">
-        <span class="vid-btn active" data-src="images/vid-1.mp4"></span>
-        <span class="vid-btn" data-src="images/vid-2.mp4"></span>
-        <span class="vid-btn" data-src="images/vid-3.mp4"></span>
-        <span class="vid-btn" data-src="images/vid-4.mp4"></span>
-        <span class="vid-btn" data-src="images/vid-5.mp4"></span>
-    </div>
+            var marker2 = L.marker([41.3110, 69.2797]).addTo(map);
+            marker2.bindPopup("<b>Shayxontohur</b><br>Diqqatga sazovor joy.");
+            var marker3 = L.marker([41.3157, 69.2784]).addTo(map);
 
-    <div class="video-container">
-        <video src="images/vid-1.mp4" id="video-slider" loop autoplay muted></video>
-    </div>
+            var marker4 = L.marker([39.6540, 66.9590]).addTo(map);
+            var marker5 = L.marker([39.6533, 66.9600]).addTo(map);
 
-</section>
-<!-- home section ends -->
+            // Marshrutni tavsiya qilish (agar kerak bo'lsa)
+            var routeControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(41.2995, 69.2407),
+                    L.latLng(41.3110, 69.2797)
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+        </script>
+    </body>
 
+</html>
 <!-- book section start -->
 <section class="book" id="book">
 
@@ -101,7 +170,8 @@
         <span>o</span>
         <span>w</span>
     </h1>
-    
+
+
     <div class="row">
 
         <div class="image">
@@ -155,7 +225,8 @@
             <img src="images/p-1.jpg" alt="">
             <div class="content">
                 <h3> <i class="fas fa-map-marker-alt"></i> Chatcal Mountains Resort </h3>
-                <p>Chatcal Mountains Resort features a seasonal outdoor swimming pool, garden, a shared lounge and terrace in Burchmulla. The resort has mountain views and a grill.</p>
+                <p>Chatcal Mountains Resort features a seasonal outdoor swimming pool, garden, a shared lounge and
+                    terrace in Burchmulla. The resort has mountain views and a grill.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -171,7 +242,7 @@
         <div class="box">
             <img src="images/p-2.jpg" alt="">
             <div class="content">
-                <h3> <i class="fas fa-map-marker-alt"></i> hawaii </h3>
+                <h3> <i class="fas fa-map-marker-alt"></i> Shahrisabz </h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -279,32 +350,38 @@
         <div class="box">
             <i class="fas fa-hotel"></i>
             <h3>affordable hotels</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                exercitationem ut minima itaque iusto ipsum corrupti!</p>
         </div>
         <div class="box">
             <i class="fas fa-utensils"></i>
             <h3>food and drinks</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                exercitationem ut minima itaque iusto ipsum corrupti!</p>
         </div>
         <div class="box">
             <i class="fas fa-bullhorn"></i>
             <h3>safty guide</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                exercitationem ut minima itaque iusto ipsum corrupti!</p>
         </div>
         <div class="box">
             <i class="fas fa-globe-asia"></i>
             <h3>around the world</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                exercitationem ut minima itaque iusto ipsum corrupti!</p>
         </div>
         <div class="box">
             <i class="fas fa-plane"></i>
             <h3>fastest travel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                exercitationem ut minima itaque iusto ipsum corrupti!</p>
         </div>
         <div class="box">
             <i class="fas fa-hiking"></i>
             <h3>adventures</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                exercitationem ut minima itaque iusto ipsum corrupti!</p>
         </div>
 
     </div>
@@ -429,7 +506,10 @@
                 <div class="box">
                     <img src="images/pic1.png" alt="">
                     <h3>Jackie Chan </h3>
-                    <p> Uzbekistan is a treasure trove of history and culture. I was blown away by the stunning architecture of Bukhara and Khiva, and the energy of Tashkent was infectious. The traditional dances and music made my visit unforgettable, and I loved how every corner of this country has a story to tell. I can’t wait to come back! </p>
+                    <p> Uzbekistan is a treasure trove of history and culture. I was blown away by the stunning
+                        architecture of Bukhara and Khiva, and the energy of Tashkent was infectious. The traditional
+                        dances and music made my visit unforgettable, and I loved how every corner of this country has a
+                        story to tell. I can’t wait to come back! </p>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -443,7 +523,8 @@
                 <div class="box">
                     <img src="images/pic2.png" alt="">
                     <h3>Cristiano Ronaldo</h3>
-                    <p> I visited Uzbekistan for the first time, and I was amazed by the warmth of the people and the incredible history. Walking through the ancient city of Samarkand felt like stepping back in time, and the food—especially the plov—was fantastic. This country has immense potential as a tourist destination, and I would definitely recommend it to anyone seeking adventure and culture. 
+                    <p> edible history. Walking through the ancient cityI visited Uzbekistan for the first time, and I
+                        was amazed by the warmth of the people and the i
 
                     </p>
                     <div class="stars">
@@ -459,7 +540,10 @@
                 <div class="box">
                     <img src="images/pic3.png" alt="">
                     <h3>mishary rashid alafasy</h3>
-                    <p> My trip to Uzbekistan was spiritually uplifting. Visiting the Islamic heritage sites and learning about the scholars who once lived here was a humbling experience. The mosques and madrasas are breathtakingly beautiful, and the hospitality of the Uzbek people is second to none. This is a place where history, spirituality, and culture meet harmoniously. </p>
+                    <p> My trip to Uzbekistan was spiritually uplifting. Visiting the Islamic heritage sites and
+                        learning about the scholars who once lived here was a humbling experience. The mosques and
+                        madrasas are breathtakingly beautiful, and the hospitality of the Uzbek people is second to
+                        none. This is a place where history, spirituality, and culture meet harmoniously. </p>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -468,12 +552,14 @@
                         <i class="far fa-star"></i>
                     </div>
                 </div>
-            </div>
-            <div class="swiper-slide">
+                </d <div class="swiper-slide">
                 <div class="box">
                     <img src="images/pic4.png" alt="">
                     <h3>Muhammadali Eshonqulov </h3>
-                    <p> Although I am from Uzbekistan, each time I explore this beautiful country, I discover something new. The historic cities like Samarkand, Bukhara, and Khiva never fail to amaze me with their timeless beauty. The kindness and hospitality of our people make me proud to call this land my home. I encourage everyone to visit Uzbekistan and experience its wonders firsthand. </p>
+                    <p> Although I am from Uzbekistan, each time I explore this beautiful country, I discover something
+                        new. The historic cities like Samarkand, Bukhara, and Khiva never fail to amaze me with their
+                        timeless beauty. The kindness and hospitality of our people make me proud to call this land my
+                        home. I encourage everyone to visit Uzbekistan and experience its wonders firsthand. </p>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -495,7 +581,7 @@
 <!-- contact section starts  -->
 
 <section class="contact" id="contact">
-    
+
     <h1 class="heading">
         <span>c</span>
         <span>o</span>
@@ -526,7 +612,7 @@
         </form>
 
     </div>
-    
+
 </section>
 
 <section class="brand-container">
@@ -552,7 +638,8 @@
 
         <div class="box">
             <h3>about us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est accusantium voluptas enim nemo facilis sit debitis.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est accusantium
+                voluptas enim nemo facilis sit debitis.</p>
         </div>
         <div class="box">
             <h3>branch locations</h3>
@@ -586,9 +673,10 @@
 </section>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> -->
 <!-- custom js file link  -->
-<script src="./script.jss"></script>
+<script src="./script.js"></script>
 
 </body>
+
 </html>

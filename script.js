@@ -84,3 +84,19 @@ var swiper = new Swiper(".brand-slider", {
         },
       },
 });
+
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdown = document.querySelector('.custom-dropdown');
+
+    dropdownBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('open');
+    });
+
+    const dropdownLinks = document.querySelectorAll('.dropdown-list a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdownBtn.textContent = e.target.textContent;
+            dropdown.classList.remove('open');
+        });
+    });

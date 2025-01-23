@@ -94,6 +94,25 @@
   header .navbar a:hover{
     color:var(--orange);
   }
+  /* Til tanlash dropdown */
+.language-dropdown {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/* Flag ikonka */
+.flag-icon {
+  width: 20px;
+  height: auto;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.flag-icon:hover {
+  transform: scale(1.1); /* Kichik animatsiya hover qilinganda */
+}
   
   header .icons i{
     font-size: 2.5rem;
@@ -606,6 +625,57 @@
     color:var(--orange);
   }
   
+  .custom-dropdown {
+    position: relative;
+    width: 200px;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown-list a {
+    padding: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.dropdown-list a:hover {
+    background-color: #f1f1f1;
+}
+
+.flag-icon {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.custom-dropdown.open .dropdown-list {
+    display: flex;
+}
   
   
   
