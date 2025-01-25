@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  rasa:
+    image: rasa/rasa:latest
+    container_name: rasa
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./models:/app/models
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+    environment:
+      - TZ=Europe/Tashkent

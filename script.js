@@ -100,3 +100,4 @@ var swiper = new Swiper(".brand-slider", {
             dropdown.classList.remove('open');
         });
     });
+    

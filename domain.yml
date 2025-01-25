@@ -1,0 +1,15 @@
+version: "2.0"
+intents:
+  - greet
+  - goodbye
+entities:
+  - location
+slots:
+  location:
+    type: text
+responses:
+  utter_greet:
+    - text: "Hello!"
+  utter_goodbye:
+    - text: "Goodbye!"
+  
